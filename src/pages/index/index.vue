@@ -28,12 +28,31 @@
         <uni-icons type="right" size="16" color="#28b389"></uni-icons>
       </view>
     </view>
+
+    <view class="select">
+      <common-title>
+        <template #name>每日推荐</template>
+      </common-title>
+      <view class="content">
+        <scroll-view scroll-x="true">
+          <view class="box" v-for="item in 8">
+            <image src="../../common/images/preview_small.webp" mode="aspectFill"></image>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class="theme">
+      <common-title>
+        <template #name>专题精选</template>
+      </common-title>
+    </view>
   </view>
 </template>
 
 
 <script setup>
 import UniIcons from '@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue'
+import CommonTitle from "../../components/common-title.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -105,6 +124,40 @@ import UniIcons from '@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue'
           white-space: nowrap;
           text-overflow: ellipsis;
         }
+      }
+    }
+  }
+
+  .select {
+    padding-top: 50rpx;
+
+    .content {
+      width: 720rpx;
+      margin-left: 30rpx;
+      margin-top: 30rpx;
+
+      scroll-view {
+        white-space: nowrap;
+
+        .box {
+          width: 200rpx;
+          height: 430rpx;
+          display: inline-block;
+          margin-right: 15rpx;
+
+          image {
+            width: 100%;
+            height: 100%;
+            border-radius: 10rpx;
+          }
+
+        }
+
+        .box:last-child {
+          margin-right: 30rpx
+        }
+
+
       }
     }
   }
