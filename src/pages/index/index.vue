@@ -32,6 +32,19 @@
     <view class="select">
       <common-title>
         <template #name>每日推荐</template>
+        <template #custom>
+          <view class="date">
+
+            <uni-icons type="calendar-filled" size="18" color="#28b389"></uni-icons>
+            <view class="text">
+              <uni-dateformat :date="Date.now() " format="dd日"></uni-dateformat>
+            </view>
+
+          </view>
+
+
+        </template>
+
       </common-title>
       <view class="content">
         <scroll-view scroll-x="true">
@@ -44,6 +57,9 @@
     <view class="theme">
       <common-title>
         <template #name>专题精选</template>
+        <template #custom>
+          <navigator url="" class="more">More ++</navigator>
+        </template>
       </common-title>
     </view>
   </view>
@@ -52,7 +68,9 @@
 
 <script setup>
 import UniIcons from '@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue'
+import UniDateformat from '@dcloudio/uni-ui/lib/uni-dateformat/uni-dateformat.vue'
 import CommonTitle from "../../components/common-title.vue";
+
 </script>
 
 <style lang="scss" scoped>
@@ -159,6 +177,23 @@ import CommonTitle from "../../components/common-title.vue";
 
 
       }
+    }
+
+    .date {
+      color: #28b389;
+      display: flex; //显示在一行
+      align-items: center;
+
+      .text {
+        margin-left: 5rpx;
+      }
+    }
+  }
+  .theme{
+    padding-top: 50rpx;
+    .more{
+      font-size: 32rpx;
+      color: #888;
     }
   }
 }
