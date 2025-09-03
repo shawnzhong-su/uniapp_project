@@ -1,31 +1,31 @@
 <template>
   <view class="homeLayout">
     <view class="banner">
-      <swiper indicator-active-color="rgba(255,255,255,0.5)" indicator-dots="True" autoplay="True">
+      <swiper autoplay="True" indicator-active-color="rgba(255,255,255,0.5)" indicator-dots="True">
         <swiper-item>
-          <image src="../../common/images/banner1.jpg" mode="aspectFill"></image>
+          <image mode="aspectFill" src="../../common/images/banner1.jpg"></image>
         </swiper-item>
         <swiper-item>
-          <image src="../../common/images/banner1.jpg" mode="aspectFill"></image>
+          <image mode="aspectFill" src="../../common/images/banner1.jpg"></image>
         </swiper-item>
         <swiper-item>
-          <image src="../../common/images/banner1.jpg" mode="aspectFill"></image>
+          <image mode="aspectFill" src="../../common/images/banner1.jpg"></image>
         </swiper-item>
       </swiper>
     </view>
 
     <view class="notice">
       <view class="left">
-        <uni-icons type="sound-filled" size="20" color="#28b389"></uni-icons>
+        <uni-icons color="#28b389" size="20" type="sound-filled"></uni-icons>
         <text class="text">公告</text>
       </view>
       <view class="center">
-        <swiper vertical="true" autoplay="true" interval="1500" duration="300" circular="">
+        <swiper autoplay="true" circular="" duration="300" interval="1500" vertical="true">
           <swiper-item v-for="item in 4">testesttesttesttesttesttesttesttesttesttesttestt</swiper-item>
         </swiper>
       </view>
       <view class="right">
-        <uni-icons type="right" size="16" color="#28b389"></uni-icons>
+        <uni-icons color="#28b389" size="16" type="right"></uni-icons>
       </view>
     </view>
 
@@ -35,21 +35,18 @@
         <template #custom>
           <view class="date">
 
-            <uni-icons type="calendar-filled" size="18" color="#28b389"></uni-icons>
+            <uni-icons color="#28b389" size="18" type="calendar-filled"></uni-icons>
             <view class="text">
               <uni-dateformat :date="Date.now() " format="dd日"></uni-dateformat>
             </view>
-
           </view>
-
-
         </template>
 
       </common-title>
       <view class="content">
         <scroll-view scroll-x="true">
-          <view class="box" v-for="item in 8">
-            <image src="../../common/images/preview_small.webp" mode="aspectFill"></image>
+          <view v-for="item in 8" class="box">
+            <image mode="aspectFill" src="../../common/images/preview_small.webp"></image>
           </view>
         </scroll-view>
       </view>
@@ -58,18 +55,22 @@
       <common-title>
         <template #name>专题精选</template>
         <template #custom>
-          <navigator url="" class="more">More ++</navigator>
+          <navigator class="more" url="">More ++</navigator>
         </template>
       </common-title>
+      <view class="content">
+        <theme-item v-for="item in 8"></theme-item>
+      </view>
     </view>
   </view>
 </template>
 
 
-<script setup>
+<script lang="ts" setup>
 import UniIcons from '@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue'
 import UniDateformat from '@dcloudio/uni-ui/lib/uni-dateformat/uni-dateformat.vue'
 import CommonTitle from "../../components/common-title.vue";
+import ThemeItem from "../../components/theme-item.vue";
 
 </script>
 
@@ -189,11 +190,21 @@ import CommonTitle from "../../components/common-title.vue";
       }
     }
   }
-  .theme{
+
+  .theme {
     padding-top: 50rpx;
-    .more{
+
+    .more {
       font-size: 32rpx;
       color: #888;
+    }
+
+    .content {
+      margin-top: 30rpx;
+      padding: 0 30rpx;
+      display: grid;
+      gap: 15rpx;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }
