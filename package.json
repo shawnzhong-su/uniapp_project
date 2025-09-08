@@ -64,6 +64,8 @@
     "@dcloudio/uni-stacktracey": "3.0.0-4070620250821001",
     "@dcloudio/vite-plugin-uni": "3.0.0-4070620250821001",
     "@vue/runtime-core": "^3.4.21",
+    "eslint": "^9.34.0",
+    "eslint-config-google": "^0.14.0",
     "sass": "^1.91.0",
     "sass-loader": "^10.1.1",
     "vite": "5.2.8"

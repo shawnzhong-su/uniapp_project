@@ -1,25 +1,41 @@
-<script>
-export default {
-  name: "theme-item"
-}
-</script>
-
 <template>
   <view class="themeItem">
-    <navigator class="box" url="">
+    <navigator v-if="!isMore" class="box" url="">
       <image class="pic" mode="aspectFill" src="../common/images/classify1.jpg"></image>
-      <view class="mask">明星美女</view>
+      <view class="mask">
+        <text>明星美女</text>
+      </view>
       <view class="tab">3天前更新</view>
     </navigator>
-  </view>
 
+    <navigator v-if="isMore" class="box more" url="">
+      <image class="pic" mode="aspectFill" src="../common/images/classify1.jpg"></image>
+      <view class="mask">
+        <uni-icons color="#fff" size="30" type="more"></uni-icons>
+        <view class="text">更多</view>
+      </view>
+    </navigator>
+
+  </view>
 </template>
+
+<script lang="ts" setup>
+import UniIcons from '@dcloudio/uni-ui/lib/uni-icons/uni-icons.vue'
+
+defineProps({
+  isMore: {
+    type: Boolean,
+    default: false
+  }
+})
+
+</script>
 
 <style lang="scss" scoped>
 .themeItem {
   .box {
     height: 340rpx;
-    border-radius: 10rpx;;
+    border-radius: 10rpx;
     overflow: hidden;
     position: relative;
 
@@ -41,7 +57,7 @@ export default {
       justify-content: center;
       backdrop-filter: blur(20rpx);
       font-weight: 600;
-      font-size: 30rpx;
+      font-size: 28rpx;
     }
 
     .tab {
@@ -58,6 +74,18 @@ export default {
       transform-origin: left top;
     }
   }
-}
 
+  .box.more {
+    .mask {
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+    }
+
+    .text {
+      font-size: 28rpx;
+    }
+
+  }
+}
 </style>

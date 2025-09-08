@@ -34,7 +34,6 @@
         <template #name>每日推荐</template>
         <template #custom>
           <view class="date">
-
             <uni-icons color="#28b389" size="18" type="calendar-filled"></uni-icons>
             <view class="text">
               <uni-dateformat :date="Date.now() " format="dd日"></uni-dateformat>
@@ -60,6 +59,7 @@
       </common-title>
       <view class="content">
         <theme-item v-for="item in 8"></theme-item>
+        <theme-item :is-more="true"></theme-item>
       </view>
     </view>
   </view>
@@ -192,7 +192,7 @@ import ThemeItem from "../../components/theme-item.vue";
   }
 
   .theme {
-    padding-top: 50rpx;
+    padding: 50rpx 0;
 
     .more {
       font-size: 32rpx;
