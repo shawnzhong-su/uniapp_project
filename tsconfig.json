@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "module": "esnext",
+    // ⭐ 建议这里保持 "bundler"，因为 Vite/Uniapp 都走 bundler 解析
+    "moduleResolution": "bundler",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "types": [
+      "@dcloudio/types",
+      "@uni-helper/uni-app-types", // ⭐ 新增
+      "node"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/**/*.js",
+    "src/**/*.jsx",
+    "typings/**/*.d.ts" // ⭐ 可选：你自己补充的全局声明
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
